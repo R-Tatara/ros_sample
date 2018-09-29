@@ -1,0 +1,7 @@
+<launch>
+  <group ns="inflatable_robot">
+    <node pkg="rostopic_sample" type="topic_publisher" name="topic_publisher"/>
+    <node pkg="rostopic_sample" type="topic_subscriber1" name="topic_subscriber1"/>
+    <node pkg="rostopic_sample" type="topic_subscriber2" name="topic_subscriber2"/>
+  </group>
+</launch>
