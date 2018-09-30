@@ -1,5 +1,6 @@
 #include "ros/ros.h"
 #include "rostopic_sample/MsgSample.h"
+#include <fstream>
 
 void msgCallback(const rostopic_sample::MsgSample::ConstPtr& msg) {
   //ROS_INFO("recieve msg = %d", msg->data2);
@@ -12,6 +13,11 @@ int main(int argc, char **argv) {
   ros::Subscriber ros_sub = nh.subscribe("ros_msg2", 100, msgCallback);
   ros::Rate loop_rate(1000);
   rostopic_sample::MsgSample msg;
+
+  std::ofstream ofs("/home/tatara/catkin_ws/src/rostopic_sample/result.csv");
+  ofs.clear();
+  ofs.seekp(0);
+  ofs << "test1" << "," << "test2" << std::endl;
 
   int count1 = 0;
 
